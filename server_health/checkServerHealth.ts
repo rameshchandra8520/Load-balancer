@@ -1,6 +1,5 @@
 import { Request, Response } from "express";
 import { serversarray } from "..";
-import "colorts/lib/string";
 
 interface HealthCheck {
     timestamp: number;
@@ -24,13 +23,11 @@ export const checkServerHealth = async (req: Request, res: Response) => {
         try {
             const response = await fetch(server);
             const result = await response.json();
-            // console.log(`Health check for ${server}`);
             console.log(`${server} is active.`);
         } catch (error:any) {
             console.log();
             console.error(`Uh-oh! ${server} is not responding`);
             console.log();
-            // console.log(`${server} is not-active.`);
         }
     };
 
